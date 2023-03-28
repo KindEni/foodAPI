@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Spoonacular API</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>Spoonacular API</h1>
+    <div class="app-desc"><h3>The only food API you'll ever need</h3>Our knowledge engineers spent years crafting our **complex food ontology**, which allows us to understand the relationships between ingredients, recipes, nutrition, allergens, and more. <br/> We understand nut free muffins can't contain pecans (even if the recipe doesn't mention 'nuts' anywhere!) and we automatically determine that a recipe with Worcestershire sauce isn't vegetarian (we're looking at you, anchovies.)
+</div>
+    <div class="app-desc">More information: <a href="https://spoonacular.com/food-api/docs">https://spoonacular.com/food-api/docs</a></div>
+    <div class="app-desc">Contact Info: <a href="some_email@gmail.com">some_email@gmail.com</a></div>
+    <div class="app-desc">Version: 1.0</div>
+    <div class="app-desc">BasePath:/food/ingredients/search</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+    <ol>
+      <li>APIKey KeyParamName:appid KeyInQuery:true KeyInHeader:false</li>
+    </ol>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#IngredientsSearch">IngredientsSearch</a></h4>
+  <ul>
+  <li><a href="#searchPayload"><code><span class="http-method">get</span> /ingredients/search</code></a></li>
+  </ul>
+
+  <h1><a name="IngredientsSearch">IngredientsSearch</a></h1>
+  <div class="method"><a name="searchPayload"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /ingredients/search</code></pre></div>
+    <div class="method-summary">Search for ingredient (<span class="nickname">searchPayload</span>)</div>
+    <div class="method-notes">Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">query (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The partial or full ingredient name. &lt;br/&gt; &lt;br/&gt;&lt;em&gt;Example: apple&lt;/em&gt;. </div>      <div class="param">addChildren (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Whether to add children of found foods. &lt;br/&gt; &lt;br/&gt;&lt;em&gt;Example: &lt;code&gt;true&lt;/code&gt;&lt;/em&gt;. </div>      <div class="param">minProteinPercent (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The minimum percentage of protein the food must have (between 0 and 100). &lt;br/&gt; &lt;br/&gt;&lt;em&gt;Example: 35&lt;/em&gt;. </div>      <div class="param">maxProteinPercent (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum percentage of protein the food can have (between 0 and 100). &lt;br/&gt; &lt;br/&gt;&lt;em&gt;Example: 90&lt;/em&gt;. </div>      <div class="param">minFatPercent (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The minimum percentage of fat the food must have (between 0 and 100). &lt;br/&gt; &lt;br/&gt;&lt;em&gt;Example: 10&lt;/em&gt;. </div>      <div class="param">maxFatPercent (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum percentage of fat the food can have (between 0 and 100). &lt;br/&gt; &lt;br/&gt;&lt;em&gt;Example: 90&lt;/em&gt;. </div>      <div class="param">minCarbsPercent (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The minimum percentage of carbs the food must have (between 0 and 100). &lt;br/&gt; &lt;br/&gt;&lt;em&gt;Example: 10&lt;/em&gt;. </div>      <div class="param">maxCarbsPercent (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The maximum percentage of carbs the food must have (between 0 and 100). &lt;br/&gt; &lt;br/&gt;&lt;em&gt;Example: 90&lt;/em&gt;. </div>      <div class="param">metaInformation (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Whether to return more meta information about the ingredients.&lt;br/&gt; &lt;br/&gt; &lt;em&gt;Example: &lt;code&gt;false&lt;/code&gt;&lt;/em&gt;. </div>      <div class="param">intolerances (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full &lt;a href&#x3D;&quot;https://spoonacular.com/food-api/docs#Intolerances&quot;&gt;list of supported intolerances&lt;/a&gt;. &lt;br/&gt; &lt;br/&gt;&lt;em&gt;Example: Egg&lt;/em&gt;. </div>      <div class="param">sort (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of results to skip (between 0 and 990).&lt;br/&gt; &lt;br/&gt;&lt;em&gt;Example: Calories&lt;/em&gt;. </div>      <div class="param">sortDirection (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The direction in which to sort. Must be either &#x27;asc&#x27; (ascending) or &#x27;desc&#x27; (descending).&lt;br/&gt; &lt;br/&gt;&lt;em&gt;Example: asc&lt;/em&gt;. </div>      <div class="param">language (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Language code, either &amp;quot;en&amp;quot; or &amp;quot;de&amp;quot;. default: en </div>      <div class="param">offset (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The number of results to skip (between 0 and 990)..&lt;br/&gt; &lt;br/&gt;&lt;em&gt;Example: 0&lt;/em&gt;. </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#200">200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "number" : 2,
+  "totalResults" : 14,
+  "offset" : 0,
+  "results" : [ "", "" ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>text/plain</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    &lt;strong&gt;Example Request and Response&lt;/strong&gt; &lt;br/&gt;&lt;br/&gt; &lt;strong&gt;&lt;code&gt;GET&lt;/code&gt;&lt;/strong&gt; &lt;br/&gt; &lt;br/&gt;  &lt;code&gt;https://api.spoonacular.com/food/ingredients/search?query&#x3D;banana&amp;amp;number&#x3D;2&amp;amp;sort&#x3D;calories&amp;amp;sortDirection&#x3D;desc &lt;/code&gt;
+        <a href="#200">200</a>
+    <h4 class="field-label">404</h4>
+    Not found response
+        <a href="#String">String</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#200"><code>200</code> - Successful response</a></li>
+    <li><a href="#result1"><code>result1</code></a></li>
+    <li><a href="#result2"><code>result2</code> - results</a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="200"><code>200</code> - Successful response</a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">results (optional)</div><div class="param-desc"><span class="param-type"><a href="#">array[null]</a></span>  </div>
+              <div class="param-desc"><span class="param-type">items anyOf:</span>
+                  <a href="#result1"><code>result1</code></a>&nbsp;&nbsp;&nbsp;
+                  <a href="#result2"><code>result2</code></a>&nbsp;&nbsp;&nbsp;
+              </div>
+<div class="param">offset (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">number (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2</span></div>
+<div class="param">totalResults (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 14</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="result1"><code>result1</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="result2"><code>result2</code> - results</a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Weather condition id format: int32</div>
+          <div class="param-desc"><span class="param-type">example: 93779</span></div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Name of food (apple, orange, banana etc.) </div>
+          <div class="param-desc"><span class="param-type">example: banana liqueur</span></div>
+<div class="param">image (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Food image </div>
+          <div class="param-desc"><span class="param-type">example: limoncello.jpg</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
