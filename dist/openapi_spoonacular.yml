@@ -1,0 +1,243 @@
+openapi: "3.0.2"
+info:
+  title: "Spoonacular API"
+  description: "<h3>The only food API you'll ever need</h3>Our knowledge engineers spent years crafting our **complex food ontology**, which allows us to understand the relationships between ingredients, recipes, nutrition, allergens, and more. <br/> We understand nut free muffins can't contain pecans (even if the recipe doesn't mention 'nuts' anywhere!) and we automatically determine that a recipe with Worcestershire sauce isn't vegetarian (we're looking at you, anchovies.)"
+  version: "1.0"
+  termsOfService: "https://spoonacular.com/food-api/terms"
+  contact:
+    name: "Spoonacular API"
+    url: "https://spoonacular.com/food-api/docs"
+    email: "some_email@gmail.com"
+  # license:
+  #   name: "CC Attribution-ShareAlike 4.0 (CC BY-SA 4.0)"
+  #   url: "https://openweathermap.org/price"
+
+servers:
+- url: "https://api.spoonacular.com/food/ingredients/search"
+
+paths:
+  /ingredients/search:
+    get:
+      tags:
+      - Ingredients Search
+      summary: "Search for ingredient"
+      description: "Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.)."
+      operationId: SearchPayload
+      parameters:
+        - $ref: '#/components/parameters/query'
+        - $ref: '#/components/parameters/addChildren'
+        - $ref: '#/components/parameters/minProteinPercent'
+        - $ref: '#/components/parameters/maxProteinPercent'
+        - $ref: '#/components/parameters/minFatPercent'
+        - $ref: '#/components/parameters/maxFatPercent'
+        - $ref: '#/components/parameters/minCarbsPercent'
+        - $ref: '#/components/parameters/maxCarbsPercent'
+        - $ref: '#/components/parameters/metaInformation'
+        - $ref: '#/components/parameters/intolerances'
+        - $ref: '#/components/parameters/minCarbsPercent'
+        - $ref: '#/components/parameters/maxCarbsPercent'
+        - $ref: '#/components/parameters/sort'
+        - $ref: '#/components/parameters/sortDirection'
+        - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/offset'
+        
+
+      responses:
+        "200":
+          description: "**Example Request and Response** <br/><br/> **`GET`** <br/> <br/>  ```https://api.spoonacular.com/food/ingredients/search?query=banana&number=2&sort=calories&sortDirection=desc ``` " 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/200'
+        "404":
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Weather not found
+                type: string
+                example: Not found
+security:
+- app_id: []
+
+tags:
+  - name: Ingredients Search
+    description: "Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.)."
+
+externalDocs:
+  description: The official documentation.
+  url: https://spoonacular.com/food-api/docs
+
+components:
+
+  parameters:
+    query:
+      name: query
+      in: query
+      description: "The partial or full ingredient name. <br/> <br/>*Example: apple*."
+      schema:
+        type: string
+    addChildren:
+      name: addChildren
+      in: query
+      description: "  Whether to add children of found foods. <br/> <br/>*Example: `true`*."
+      schema:
+        type: boolean
+
+    minProteinPercent:
+      name: minProteinPercent
+      in: query
+      description: " The minimum percentage of protein the food must have (between 0 and 100). <br/> <br/>*Example: 35*."
+      schema:
+        type: number
+
+    maxProteinPercent:
+      name: maxProteinPercent
+      in: query
+      description: "The maximum percentage of protein the food can have (between 0 and 100). <br/> <br/>*Example: 90*."
+      schema:
+        type: number
+
+    minFatPercent:
+      name: minFatPercent
+      in: query
+      description: "The minimum percentage of fat the food must have (between 0 and 100). <br/> <br/>*Example: 10*."
+      schema:
+        type: number
+
+    maxFatPercent:
+      name: maxFatPercent
+      in: query
+      description: 'The maximum percentage of fat the food can have (between 0 and 100). <br/> <br/>*Example: 90*.'
+      schema:
+        type: number
+
+    minCarbsPercent:
+      name: minCarbsPercent
+      in: query
+      description: 'The minimum percentage of carbs the food must have (between 0 and 100). <br/> <br/>*Example: 10*.'
+      schema:
+        type: number
+
+    maxCarbsPercent:
+      name: maxCarbsPercent
+      in: query
+      description: 'The maximum percentage of carbs the food must have (between 0 and 100). <br/> <br/>*Example: 90*.'
+      schema:
+        type: number
+
+    metaInformation:
+      name: metaInformation
+      in: query
+      description: 'Whether to return more meta information about the ingredients.<br/> <br/> *Example: `false`*.'
+      schema:
+        type: boolean
+
+    intolerances:
+      name: intolerances
+      in: query
+      description: 'A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full [list of supported intolerances](https://spoonacular.com/food-api/docs#Intolerances). <br/> <br/>*Example: Egg*.'
+      schema:
+        type: string
+
+    sort:
+      name: sort
+      in: query
+      description: 'The number of results to skip (between 0 and 990).<br/> <br/>*Example: Calories*.'
+      schema:
+        type: string
+
+    sortDirection:
+      name: sortDirection
+      in: query
+      description: "The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).<br/> <br/>*Example: asc*."
+      schema:
+        type: string
+    
+
+    language:
+      name: language
+      in: query
+      description: 'Language code, either "en" or "de".'
+      schema:
+        type: string
+        enum: [en, de]
+        default: "en"
+
+    offset:
+      name: offset
+      in: query
+      description: "The number of results to skip (between 0 and 990)..<br/> <br/>*Example: 0*."
+      schema:
+        type: string    
+
+    number:
+      name: number
+      in: query
+      description: "The number of expected results (between 1 and 100)<br/> <br/>*Example: 10*."
+      schema:
+        type: string    
+
+  schemas:
+    "200":
+      title: Successful response
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/result1'
+              - $ref: '#/components/schemas/result2'
+        offset:
+          type: number
+          example: 0 
+        number:
+          type: number
+          example: 2 
+        totalResults:
+          type: number
+          example: 14 
+  # Work on these results, the some meaningful descriptions should be shown in the schema section.      
+    result1:
+      title: results
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Weather condition id
+          format: int32
+          example: 19400
+        name:
+          type: string
+          description: Name of food (apple, orange, banana etc.)
+          example: banana chips
+        image:
+          type: string
+          description: Food image
+          example: banana-chips.jpg
+      $ref: '#/components/schemas/result1'
+    result2:
+      title: results
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Weather condition id
+          format: int32
+          example: 93779
+        name:
+          type: string
+          description: Name of food (apple, orange, banana etc.)
+          example: banana liqueur
+        image:
+          type: string
+          description: Food image
+          example: limoncello.jpg
+
+  securitySchemes:
+    app_id:
+      type: apiKey
+      description: "API key to authorize requests. (If you don't have an API key, get one at https://spoonacular.com/food-api/console#Profile. See https://spoonacular.com/food-api for details.)"
+      name: appid
+      in: query
